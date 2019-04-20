@@ -32,12 +32,14 @@ def player_to_words(game_history):
 
     return player_to_points
 
-print(player_to_words({"player1" : ['BLUE', 'TENNIS', 'EXIT'], "wordNerd" : ['EARTH', 'EYES', 'MACHINE'], "Lexi Con" : ['ERASER', 'BELLY', 'HUSKY'], "Prof Reader" : ['ZAP', 'COMA', 'PERIOD']}))
+game1_history = {"player1" : ['BLUE', 'TENNIS', 'EXIT'], "wordNerd" : ['EARTH', 'EYES', 'MACHINE'], "Lexi Con" : ['ERASER', 'BELLY', 'HUSKY'], "Prof Reader" : ['ZAP', 'COMA', 'PERIOD']}
+#print(player_to_words(game1_history))
 
 
 #play_word()
 
-#def play_word(player, word):
-#    player_to_words[player].append(word)
+def play_word(player, word, game_history):
+    game_history[player].append(word)
+    print(player_to_words(game_history))
 
-#play_word("player1", "LEONARD")
+play_word("player1", "LEONARD", game1_history)
