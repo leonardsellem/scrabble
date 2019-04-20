@@ -22,14 +22,22 @@ def score_word(word):
 
 #Score a Game
 
-player_to_words = {"player1" : ['BLUE', 'TENNIS', 'EXIT'], "wordNerd" : ['EARTH', 'EYES', 'MACHINE'], "Lexi Con" : ['ERASER', 'BELLY', 'HUSKY'], "Prof Reader" : ['ZAP', 'COMA', 'PERIOD']}
+def player_to_words(game_history):
+    player_to_points = {}
+    for player, words in game_history.items():
+        player_points = 0
+        for word in words:
+            player_points += score_word(word)
+        player_to_points[player] = player_points
 
-player_to_points = {}
+    return player_to_points
 
-for player, words in player_to_words.items():
-    player_points = 0
-    for word in words:
-        player_points += score_word(word)
-    player_to_points[player] = player_points
+print(player_to_words({"player1" : ['BLUE', 'TENNIS', 'EXIT'], "wordNerd" : ['EARTH', 'EYES', 'MACHINE'], "Lexi Con" : ['ERASER', 'BELLY', 'HUSKY'], "Prof Reader" : ['ZAP', 'COMA', 'PERIOD']}))
 
-print(player_to_points)
+
+#play_word()
+
+#def play_word(player, word):
+#    player_to_words[player].append(word)
+
+#play_word("player1", "LEONARD")
