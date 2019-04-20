@@ -42,4 +42,4 @@ def play_word(player, word, game_history):
     game_history[player].append(word)
     print(player_to_words(game_history))
 
-play_word("player1", "LEONARD", game1_history)
+#play_word("player1", "LEONARD", game1_history)
