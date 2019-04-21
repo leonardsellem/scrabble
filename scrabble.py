@@ -14,7 +14,10 @@ letter_to_points[" "] = 0
 def score_word(word):
     point_total = 0
     for letter in word:
-        point_total += letter_to_points.get(letter, 0)
+        if letter.isupper():
+            point_total += letter_to_points.get(letter, 0)
+        else:
+            point_total += letter_to_points.get(letter.upper(), 0)
     return point_total
 
 #brownie_points = score_word("BROWNIE")
@@ -22,7 +25,7 @@ def score_word(word):
 
 #Score a Game
 
-def player_to_words(game_history):
+def update_game_total(game_history):
     player_to_points = {}
     for player, words in game_history.items():
         player_points = 0
@@ -33,13 +36,13 @@ def player_to_words(game_history):
     return player_to_points
 
 game1_history = {"player1" : ['BLUE', 'TENNIS', 'EXIT'], "wordNerd" : ['EARTH', 'EYES', 'MACHINE'], "Lexi Con" : ['ERASER', 'BELLY', 'HUSKY'], "Prof Reader" : ['ZAP', 'COMA', 'PERIOD']}
-#print(player_to_words(game1_history))
+#print(update_game_total(game1_history))
 
 
 #play_word()
 
 def play_word(player, word, game_history):
     game_history[player].append(word)
-    print(player_to_words(game_history))
+    print(update_game_total(game_history))
 
-#play_word("player1", "LEONARD", game1_history)
+#play_word("player1", "Leonard", game1_history)
